@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["student_name"])) {
+  header("location:../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es"> <!-- cambiado a español -->
 
@@ -11,7 +18,7 @@
       text-decoration: none;
       color: black;
     }
-    .msg{
+    .msg {
       color: green;
     }
   </style>
@@ -19,14 +26,21 @@
 
 <body>
   <main>
+    <?php 
+      $title = 'Sistema de Asistencia';
+      $username = $_SESSION['student_name'];
+      include "../componets/header.php"; 
+    ?>
     <div class="container">
-      <h1 class="msg">¡Asistencia Registrada! 🎉</h1> <!-- traducido -->
+      <h1 class="msg">🎉 ¡Asistencia Registrada con Éxito!</h1> <!-- mensaje en español -->
+      <p>Puedes regresar al panel para continuar.</p>
+      <a href="dashboard.php">⬅ Volver al Panel</a>
     </div>
   </main>
   <script>
     var show = 0;
     function showBox() {
-      box = document.getElementById('box');
+      let box = document.getElementById('box');
       if (show == 0) {
         box.style.height = "100px";
         show = 1;
