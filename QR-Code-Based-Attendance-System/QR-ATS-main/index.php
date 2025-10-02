@@ -13,7 +13,7 @@
             <div class="logo">
                 <h2>Sistema de Asistencia</h2> <!-- traducido -->
             </div>
-            <img src="resources/img/img1.jpg" alt="Imagen asistencia">
+            <img src="resources/img/img1.png" alt="Imagen asistencia">
         </section>
         <section class="right">
             <form id="form" method="post">
@@ -52,3 +52,4 @@
     </script>
 </body>
 </html>
+
