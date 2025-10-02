@@ -33,12 +33,12 @@ catch(mysqli_sql_exception $e){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"> <!-- traducido a español -->
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
+  <title>Panel de Control</title> <!-- traducido -->
   <link rel="stylesheet" href="../css/style.css" />
   <style>
     a {
@@ -53,11 +53,13 @@ catch(mysqli_sql_exception $e){
 
 <body>
   <main>
-    <?php $title = 'Attendace System';
-    $username = $_SESSION['student_name'];
-    include "../componets/header.php" ?>
+    <?php 
+      $title = 'Sistema de Asistencia'; // traducido
+      $username = $_SESSION['student_name'];
+      include "../componets/header.php" 
+    ?>
     <div class="container">
-      <h1 class="msg">Attendance Registered</h1>
+      <h1 class="msg">¡Asistencia Registrada con Éxito! ✅</h1> <!-- traducido -->
     </div>
   </main>
   <script>
