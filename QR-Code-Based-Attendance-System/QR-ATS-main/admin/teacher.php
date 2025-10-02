@@ -13,35 +13,35 @@ $result = mysqli_query($con, $query);
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teachers</title>
+    <title>Profesores</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
     <main>
-        <?php $title = 'Teachers';
+        <?php $title = 'Profesores';
         include "../componets/header.php" ?>
         <?php include "../componets/sidebar.php" ?>
         <div class="container">
-        <a href="add_teacher.php" class="add">Add Teacher</a>
+        <a href="add_teacher.php" class="add">Agregar Profesor</a>
             <?php
 
             if (mysqli_num_rows($result) <= 0) {
-                echo "<h3 style='margin-top: 20px; color: red;'>No One Teacher Register yet!</h3>";
+                echo "<h3 style='margin-top: 20px; color: red;'>¡Aún no hay profesores registrados!</h3>";
             } else {
                 echo '
                 <table>
                     <tr>
-                        <th>SR No.</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Subject Name</th>
-                        <th>Action</th>
+                        <th>No.</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Asignatura</th>
+                        <th>Acciones</th>
                     </tr>';
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo
@@ -62,7 +62,7 @@ $result = mysqli_query($con, $query);
     </main>
     <script>
         function wantDelete(){
-            var a = confirm("Do you want to delete?");
+            var a = confirm("¿Desea eliminar este profesor?");
 
             if(a) return true;
             else return false;
