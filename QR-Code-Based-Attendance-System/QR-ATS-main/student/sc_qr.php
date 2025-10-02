@@ -94,8 +94,7 @@ if (!isset($_SESSION["student_name"])) {
         </div>
       </div>
     </div>
-    <script src="https://unpkg.com/html5-qrcode">
-    </script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <script src="script.js"></script>
     </div>
   </main>
