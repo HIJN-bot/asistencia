@@ -3,11 +3,11 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Based Attendance System</title>
+    <title>Sistema de Asistencia con Código QR</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../resources/img/Attendance System.png" type="image/x-icon">
 </head>
@@ -15,22 +15,22 @@
     <main>
         <section class="left">
             <div class="logo">
-                <h2>Attendance System</h2>
+                <h2>Sistema de Asistencia</h2>
             </div>
             <img src="../resources/img/img1.jpg" alt="">
         </section>
         <section class="right">
             <form id="form" method="post" action="#">
-                <h2>Login as Admin</h2>
+                <h2>Iniciar Sesión como Administrador</h2>
                 <div class="input_area">
-                    <input type="email" placeholder="Enter Email" name="email" required>
+                    <input type="email" placeholder="Ingrese Correo" name="email" required>
                     <img src="../resources/img/mail.png" alt="">
                 </div>
                 <div class="input_area">
-                    <input type="password" placeholder="Enter Password" name="pass" required>
+                    <input type="password" placeholder="Ingrese Contraseña" name="pass" required>
                     <img src="../resources/img/padlock.png" alt="">
                 </div>
-                <input type="submit" value="Login" name="login" class="button_submit">
+                <input type="submit" value="Iniciar Sesión" name="login" class="button_submit">
             </form>
         </section>
     </main>
@@ -51,7 +51,7 @@ if(isset($_POST["login"]))
 
     if(mysqli_num_rows($result) <= 0){
         echo "<script>
-            alert('Enter Valid Credencial')
+            alert('Ingrese credenciales válidas')
         </script>";
     }
     else{
@@ -60,4 +60,5 @@ if(isset($_POST["login"]))
         header("location:dashboard.php");
     }
 }
+
 ?>
