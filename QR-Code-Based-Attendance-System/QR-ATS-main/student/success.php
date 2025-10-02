@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"> <!-- cambiado a español -->
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
+  <title>Panel de Control</title> <!-- traducido -->
   <link rel="stylesheet" href="../css/style.css" />
   <style>
     a {
@@ -20,7 +20,7 @@
 <body>
   <main>
     <div class="container">
-      <h1 class="msg">Attendance Registered! 🎉</h1>
+      <h1 class="msg">¡Asistencia Registrada! 🎉</h1> <!-- traducido -->
     </div>
   </main>
   <script>
