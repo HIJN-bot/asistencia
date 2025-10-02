@@ -7,12 +7,12 @@ if (!isset($_SESSION["student_name"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"> <!-- cambiado a español -->
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
+  <title>Panel de Control</title> <!-- traducido -->
   <link rel="stylesheet" href="../css/style.css" />
   <style>
     a {
@@ -79,14 +79,16 @@ if (!isset($_SESSION["student_name"])) {
 
 <body>
   <main>
-    <?php $title = 'Attendace System';
-    $username = $_SESSION['student_name'];
-    include "../componets/header.php" ?>
+    <?php 
+      $title = 'Sistema de Asistencia'; // traducido
+      $username = $_SESSION['student_name'];
+      include "../componets/header.php" 
+    ?>
     <div id="box">
-      <a href="../logout.php">Logout</a>
+      <a href="../logout.php">Cerrar sesión</a> <!-- traducido -->
     </div>
     <div class="container">
-      <h1>Scan QR Code</h1>
+      <h1>Escanear Código QR</h1> <!-- traducido -->
       <div class="section">
         <div id="my-qr-reader">
         </div>
@@ -123,7 +125,7 @@ if (!isset($_SESSION["student_name"])) {
 
     domReady(function () {
 
-      // If found you qr code
+      // Si encuentra el código QR
       function onScanSuccess(decodeText, decodeResult) { 
         console.log(decodeText);
 
@@ -141,7 +143,7 @@ if (!isset($_SESSION["student_name"])) {
         if(time_difference<5){
           window.location.href = "scan_qr.php?s_id=<?php echo $_SESSION['id'];?>&s_name=<?php echo $_SESSION['student_name'];?>&rollno=<?php echo $_SESSION['rollno'];?>&section=<?php echo $_SESSION['section']; ?>&subject="+qr_info.subject+"&date="+qr_info.date;
         }else{
-          window.location.href = "expired.php";
+          window.location.href = "expired.php"; // si expira, ya tienes página aparte
         }
       }
 
