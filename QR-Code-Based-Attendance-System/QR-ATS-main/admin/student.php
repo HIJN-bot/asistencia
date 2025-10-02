@@ -13,34 +13,34 @@ $result = mysqli_query($con,$query);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students</title>
+    <title>Estudiantes</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <main>
-    <?php $title = 'Students'; include "../componets/header.php"  ?>
+    <?php $title = 'Estudiantes'; include "../componets/header.php"  ?>
       <?php include "../componets/sidebar.php" ?>
-      <a href="../register.html" class="add">Add Student</a>
+      <a href="../register.html" class="add">Agregar Estudiante</a>
         <div class="container">
                 <?php
 
                     if(mysqli_num_rows($result) <= 0){
-                        echo "<h3 style='margin-top: 20px; color: red;'>No One Student Register yet!</h3>";
+                        echo "<h3 style='margin-top: 20px; color: red;'>¡Aún no hay estudiantes registrados!</h3>";
                     }
                     else{
                         echo'
                         <table>
                             <tr>
-                                <th>SR No.</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Roll Number</th>
-                                <th>Section</th>
-                                <th>Action</th>
+                                <th>No.</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Número de Lista</th>
+                                <th>Sección</th>
+                                <th>Acciones</th>
                             </tr>';
                     $srno = 0;
                     while($row = mysqli_fetch_assoc($result)) {
@@ -64,7 +64,7 @@ $result = mysqli_query($con,$query);
     </main>
     <script>
         function wantDelete(){
-            var a = confirm("Do you want to delete?");
+            var a = confirm("¿Desea eliminar este estudiante?");
 
             if(a) return true;
             else return false;
