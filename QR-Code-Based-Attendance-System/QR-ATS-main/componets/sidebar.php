@@ -1,14 +1,14 @@
 <nav class="sidebar">
-    <li title="Dashboard">
-        <a href="dashboard.php"><img src="../resources/icons/Graph.svg" /> <span>Dashboard</span></a>
+    <li title="Panel de Control">
+        <a href="dashboard.php"><img src="../resources/icons/Graph.svg" /> <span>Panel de Control</span></a>
     </li>
-    <li title="Students">
-        <a href="student.php"><img src="../resources/icons/2 User.svg" /> <span>Students</span></a>
+    <li title="Estudiantes">
+        <a href="student.php"><img src="../resources/icons/2 User.svg" /> <span>Estudiantes</span></a>
     </li>
-    <li title="Teachers">
-        <a href="teacher.php"><img src="../resources/icons/Profile.svg" /> <span>Teachers</span></a>
+    <li title="Profesores">
+        <a href="teacher.php"><img src="../resources/icons/Profile.svg" /> <span>Profesores</span></a>
     </li>
-    <li title="Logout">
-        <a href="logout.php"><img src="../resources/icons/Logout.svg" /> <span>Logout</span></a>
+    <li title="Cerrar Sesión">
+        <a href="logout.php"><img src="../resources/icons/Logout.svg" /> <span>Cerrar Sesión</span></a>
     </li>
 </nav>
