@@ -15,11 +15,11 @@ $total_student = mysqli_num_rows($student_result);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Panel de Control</title>
     <link rel="stylesheet" href="../css/style.css" />
     <style>
       a{
@@ -30,7 +30,7 @@ $total_student = mysqli_num_rows($student_result);
   </head>
   <body>
     <main>
-      <?php $title = 'Dashboard'; $username=$_SESSION['admin_name']; include "../componets/header.php"  ?>
+      <?php $title = 'Panel de Control'; $username=$_SESSION['admin_name']; include "../componets/header.php"  ?>
       <?php include "../componets/sidebar.php" ?>
       <div class="container">
         <div class="card">
@@ -42,7 +42,7 @@ $total_student = mysqli_num_rows($student_result);
           <h1><?php echo $total_teacher; ?></h1>
           <img src="../resources/icons/Profile.svg" alt="" />
           <a href="teacher.php">
-          <h4>Total Teachers</h4>
+          <h4>Total de Docentes</h4>
           </a>
         </div>
 
@@ -50,7 +50,7 @@ $total_student = mysqli_num_rows($student_result);
           <h1><?php echo $total_student; ?></h1>
           <img src="../resources/icons/2 User.svg" alt="" />
           <a href="student.php">
-            <h4>Total Student</h4>
+            <h4>Total de Estudiantes</h4>
           </a>
         </div>
       </div>
@@ -59,7 +59,7 @@ $total_student = mysqli_num_rows($student_result);
         time = document.getElementById("time");
         date = document.getElementById("date");
 
-        var mt = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var mt = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
         setInterval(() => {
           var d = new Date();
@@ -67,15 +67,18 @@ $total_student = mysqli_num_rows($student_result);
           var m = d.getMinutes();
           var s = d.getSeconds();
 
-          var a ="AM"
-          if(h>12){
-            var a="PM"
-            h-=12;
+          var a = "AM";
+          if(h > 12){
+            a = "PM";
+            h -= 12;
           }
 
-          time.innerHTML = h+":"+m+":"+s+" "+a;
-          date.innerHTML = "Today : <br>" + d.getDate() + " " + mt[d.getMonth()] + " " + d.getFullYear();
+          time.innerHTML = h + ":" + m + ":" + s + " " + a;
+          date.innerHTML = "Hoy : <br>" + d.getDate() + " " + mt[d.getMonth()] + " " + d.getFullYear();
         }, 1000);
     </script>
   </body>
 </html>
+
+</html>
+
