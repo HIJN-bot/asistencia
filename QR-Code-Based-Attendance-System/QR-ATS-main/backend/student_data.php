@@ -15,13 +15,13 @@ try{
 }
 catch(mysqli_sql_exception $e){
     echo "<script>
-    alert('Something went wrong!')
+    alert('¡Algo salió mal!')
 </script>";
 }
 if($result){
     echo '
         <script>
-            alert("Registration successfull!")
+            alert("¡Registro exitoso!")
             history.back()
         </script>
     ';
@@ -29,7 +29,7 @@ if($result){
 else{
     echo '
         <script>
-            alert("Email & Combination of Roll No & Section Must Unique!")
+            alert("¡El correo y la combinación de Número de lista y Sección deben ser únicos!")
             history.back()
         </script>
     ';
