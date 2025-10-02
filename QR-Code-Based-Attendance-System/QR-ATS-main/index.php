@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"> <!-- cambiado a español -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Based Attendance System</title>
+    <title>Sistema de Asistencia con Código QR</title> <!-- traducido -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="resources/img/Attendance System.png" type="image/x-icon">
 </head>
@@ -11,39 +11,35 @@
     <main>
         <section class="left">
             <div class="logo">
-                 
-                <h2>Attendance System</h2>
+                <h2>Sistema de Asistencia</h2> <!-- traducido -->
             </div>
-            <img src="resources/img/img1.jpg" alt="">
+            <img src="resources/img/img1.jpg" alt="Imagen asistencia">
         </section>
         <section class="right">
             <form id="form" method="post">
-                <h2>Select Your Role</h2>
+                <h2>Selecciona tu Rol</h2> <!-- traducido -->
                 <input type="radio" name="role" id="teacher_radio" onchange="checkRadio()" value="teacher" required>
-                <label for="teacher_radio">Teacher</label>
+                <label for="teacher_radio">Profesor</label> <!-- traducido -->
 
                 <input type="radio" name="role" id="student_radio" onchange="checkRadio()" value="student" required>
-                <label for="student_radio">Student</label>
+                <label for="student_radio">Estudiante</label> <!-- traducido -->
 
                 <div class="input_area">
-                    <input type="email" placeholder="Enter Email" name="email" required>
-                    <img src="resources/img/mail.png" alt="">
+                    <input type="email" placeholder="Ingresa tu correo" name="email" required> <!-- traducido -->
+                    <img src="resources/img/mail.png" alt="icono correo">
                 </div>
                 <div class="input_area">
-                    <input type="password" placeholder="Enter Password" name="password" required>
-                    <img src="resources/img/padlock.png" alt="">
+                    <input type="password" placeholder="Ingresa tu contraseña" name="password" required> <!-- traducido -->
+                    <img src="resources/img/padlock.png" alt="icono contraseña">
                 </div>
-                <button class="button_submit">Login</button>
-                <div class="msg">New Student? <a href="register.php">Register here</a></div>
+                <button class="button_submit">Iniciar Sesión</button> <!-- traducido -->
+                <div class="msg">¿Eres nuevo estudiante? <a href="register.php">Regístrate aquí</a></div> <!-- traducido -->
             </form>
         </section>
     </main>
     <script>
-
         function checkRadio(){
-
             let form = document.getElementById("form");
-
 
             if(document.getElementById("teacher_radio").checked){
                 form.setAttribute("action", "teacher/index.php");
