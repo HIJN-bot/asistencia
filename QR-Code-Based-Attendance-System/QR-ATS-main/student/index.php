@@ -1,33 +1,9 @@
 <?php
 session_start();
-
-$email = $_POST['email'];
-$pass = $_POST['password'];
-$con = mysqli_connect("localhost", "root", "", "qr_ats");
-$query = "select * from student where email='$email' and password='$pass'";
-$result = mysqli_query($con, $query);
-
-$row = mysqli_fetch_assoc($result);
-
-if (mysqli_num_rows($result) <= 0) {
-  echo "<script>
-            alert('Credenciales inválidas, inténtelo de nuevo')
-            location.href='../index.php'
-        </script>";
-} else {
-  $_SESSION['id'] = $row['id'];
-  $_SESSION['student_name'] = $row['name'];
-  $_SESSION['student_email'] = $row['email'];
-  $_SESSION['rollno'] = $row['roll_no'];
-  $_SESSION['section'] = $row['section'];
-}
-
 if (!isset($_SESSION["student_name"])) {
   header("location:../index.php");
-}else{
-  header("location:sc_qr.php");
+  exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -36,22 +12,22 @@ if (!isset($_SESSION["student_name"])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panel de Control</title>
+  <title>Escanear Código QR</title>
   <link rel="stylesheet" href="../css/style.css" />
   <style>
-    a {
-      text-decoration: none;
-      color: black;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
     }
 
-    .section {
-      background-color: #ffffff;
-      border-radius: 0.25em;
-      position: absolute;
-      display: block;
-      width: 90%;
-      left: 6%;
-      z-index: -10;
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
     }
 
     #my-qr-reader {
@@ -60,42 +36,25 @@ if (!isset($_SESSION["student_name"])) {
       border-radius: 8px;
     }
 
-    #my-qr-reader img[alt="Info icon"] {
-      display: none;
-    }
-
-    #my-qr-reader img[alt="Camera based scan"] {
-      width: 100px !important;
-      height: 100px !important;
-    }
-
     button {
       padding: 10px 20px;
-      border: 1px solid #b2b2b2;
-      outline: none;
+      border: none;
       border-radius: 0.25em;
       color: white;
       font-size: 15px;
       cursor: pointer;
       margin-top: 15px;
-      margin-bottom: 10px;
-      background-color: #008000ad;
-      transition: 0.3s background-color;
+      background-color: #1976d2;
+      transition: 0.3s;
     }
 
     button:hover {
-      background-color: #008000;
-    }
-
-    #html5-qrcode-anchor-scan-type-change {
-      text-decoration: none !important;
-      color: #1d9bf0;
+      background-color: #0d47a1;
     }
 
     video {
       width: 300px !important;
-      border: 1px solid #b2b2b2 !important;
-      border-radius: 0.25em;
+      border-radius: 8px;
       margin: auto;
     }
   </style>
@@ -104,41 +63,22 @@ if (!isset($_SESSION["student_name"])) {
 <body>
   <main>
     <?php 
-    $title = 'Sistema de Asistencia';
-    $username = $_SESSION['student_name'];
-    include "../componets/header.php" ?>
-    <div id="box">
-      <a href="../logout.php">Cerrar Sesión</a>
-    </div>
+      $title = 'Sistema de Asistencia';
+      $username = $_SESSION['student_name'];
+      include "../componets/header.php"; 
+    ?>
     <div class="container">
-      <h1>Escanear Código QR</h1>
-      <div class="section">
-        <div id="my-qr-reader">
-        </div>
-      </div>
-    </div>
-    <script src="https://unpkg.com/html5-qrcode"></script>
-    <script src="script.js"></script>
+      <h1>Bienvenido, <?php echo htmlspecialchars($username); ?> 👋</h1>
+      <p>Escanea el código QR para registrar tu asistencia.</p>
+      <div id="my-qr-reader"></div>
     </div>
   </main>
-  <script>
-    var show = 0;
-    function showBox() {
-      box = document.getElementById('box');
-      if (show == 0) {
-        box.style.height = "100px";
-        show = 1;
-      } else {
-        box.style.height = "0px";
-        show = 0;
-      }
-    }
 
+  <!-- Librería de escaneo QR -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script>
     function domReady(fn) {
-      if (
-        document.readyState === "complete" ||
-        document.readyState === "interactive"
-      ) {
+      if (document.readyState === "complete" || document.readyState === "interactive") {
         setTimeout(fn, 1000);
       } else {
         document.addEventListener("DOMContentLoaded", fn);
@@ -146,39 +86,28 @@ if (!isset($_SESSION["student_name"])) {
     }
 
     domReady(function () {
+      function onScanSuccess(decodeText, decodeResult) {
+        try {
+          let qr_info = JSON.parse(decodeText);
 
-      // Si se encuentra el código QR
-      function onScanSuccess(decodeText, decodeResult) { 
-        console.log(decodeText);
+          let current_date = new Date();
+          let qr_date = new Date(qr_info.date);
 
-        let qr_info = JSON.parse(decodeText);
+          let diff_minutes = (current_date.getTime() - qr_date.getTime()) / (1000 * 60);
 
-        current_date = new Date();
-        qr_date = new Date(qr_info.date);
-
-        current_time = current_date.getTime();
-        qr_time = qr_date.getTime();
-
-        time_difference = (current_time-qr_time)/(1000*60);
-
-        h=0;
-        if(time_difference<5){
-          window.location.href = "scan_qr.php?s_id=<?php echo $_SESSION['id'];?>&s_name=<?php echo $_SESSION['student_name'];?>&rollno=<?php echo $_SESSION['rollno'];?>&section=<?php echo $_SESSION['section']; ?>&subject="+qr_info.subject+"&date="+qr_info.date;
-        }else{
-          window.location.href = "expired.php";
+          if (diff_minutes < 5) {
+            window.location.href = "scan_qr.php?s_id=<?php echo $_SESSION['id'];?>&s_name=<?php echo urlencode($_SESSION['student_name']);?>&rollno=<?php echo $_SESSION['rollno'];?>&section=<?php echo $_SESSION['section'];?>&subject=" + encodeURIComponent(qr_info.subject) + "&date=" + encodeURIComponent(qr_info.date);
+          } else {
+            window.location.href = "expired.php";
+          }
+        } catch (e) {
+          alert("QR inválido");
         }
       }
 
-      let htmlscanner = new Html5QrcodeScanner(
-        "my-qr-reader",
-        { fps: 10, qrbos: 250 }
-      );
+      let htmlscanner = new Html5QrcodeScanner("my-qr-reader", { fps: 10, qrbox: 250 });
       htmlscanner.render(onScanSuccess);
     });
   </script>
 </body>
-
-</html>
-
-
 </html>
