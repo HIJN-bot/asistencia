@@ -12,11 +12,10 @@ $query = "insert into teacher(name, email, subject, password) values('$name','$e
 if(mysqli_query($con, $query)){
     echo '
         <script>
-            alert("Teacher Registration successfully")
+            alert("¡Registro de profesor exitoso!")
             history.back()
         </script>
     ';
 }
-
 
 ?>
