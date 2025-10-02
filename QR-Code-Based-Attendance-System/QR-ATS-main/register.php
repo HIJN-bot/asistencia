@@ -32,7 +32,7 @@
             <div class="logo">
                 <h2>Sistema de Asistencia</h2>
             </div>
-            <img src="resources/img/img1.jpg" alt="Imagen asistencia">
+            <img src="resources/img/img1.png" alt="Imagen asistencia">
         </section>
 
         <!-- Sección derecha con el formulario -->
@@ -99,3 +99,4 @@
     </script>
 </body>
 </html>
+
