@@ -11,7 +11,7 @@ $row = mysqli_fetch_assoc($result);
 
 if (mysqli_num_rows($result) <= 0) {
   echo "<script>
-            alert('Enter Valid Credencial')
+            alert('Credenciales inválidas, inténtelo de nuevo')
             location.href='../index.php'
         </script>";
 } else {
@@ -31,12 +31,12 @@ if (!isset($_SESSION["student_name"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
+  <title>Panel de Control</title>
   <link rel="stylesheet" href="../css/style.css" />
   <style>
     a {
@@ -103,21 +103,21 @@ if (!isset($_SESSION["student_name"])) {
 
 <body>
   <main>
-    <?php $title = 'Attendace System';
+    <?php 
+    $title = 'Sistema de Asistencia';
     $username = $_SESSION['student_name'];
     include "../componets/header.php" ?>
     <div id="box">
-      <a href="../logout.php">Logout</a>
+      <a href="../logout.php">Cerrar Sesión</a>
     </div>
     <div class="container">
-      <h1>Scan QR Code</h1>
+      <h1>Escanear Código QR</h1>
       <div class="section">
         <div id="my-qr-reader">
         </div>
       </div>
     </div>
-    <script src="https://unpkg.com/html5-qrcode">
-    </script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <script src="script.js"></script>
     </div>
   </main>
@@ -147,7 +147,7 @@ if (!isset($_SESSION["student_name"])) {
 
     domReady(function () {
 
-      // If found you qr code
+      // Si se encuentra el código QR
       function onScanSuccess(decodeText, decodeResult) { 
         console.log(decodeText);
 
@@ -177,5 +177,8 @@ if (!isset($_SESSION["student_name"])) {
     });
   </script>
 </body>
+
+</html>
+
 
 </html>
