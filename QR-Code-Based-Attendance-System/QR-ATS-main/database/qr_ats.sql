@@ -11,21 +11,18 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+ /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+ /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ /*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `qr_ats`
 --
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
+-- Tabla: admin
+-- --------------------------------------------------------
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
@@ -34,18 +31,12 @@ CREATE TABLE `admin` (
   `pass` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `admin`
---
-
 INSERT INTO `admin` (`id`, `name`, `email`, `pass`) VALUES
-(1, 'SSBT', 'admin@ssbt.com', 'coet');
+(1, 'Administrador', 'admin@qr.com', 'pass');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `attendance`
---
+-- Tabla: attendance
+-- --------------------------------------------------------
 
 CREATE TABLE `attendance` (
   `id` int(11) NOT NULL,
@@ -57,27 +48,11 @@ CREATE TABLE `attendance` (
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `attendance`
---
-
-INSERT INTO `attendance` (`id`, `s_id`, `s_name`, `subject`, `section`, `rollno`, `date`) VALUES
-(198, 5, 'Prashant Patil', 'os', 'C', '02', '2024-04-15 00:00:00'),
-(202, 3, 'Aashish Gore', 'os', 'A', '66', '2024-04-15 00:00:00'),
-(204, 4, 'Lokesh Chaudhari', 'os', 'A', '38', '2024-04-15 00:00:00'),
-(205, 2, 'Vipul Girase', 'os', 'A', '65', '2024-04-15 00:00:00'),
-(207, 5, 'Prashant Patil', 'NN', 'C', '02', '2024-04-15 16:06:05'),
-(208, 3, 'Aashish Gore', 'NN', 'A', '66', '2024-04-15 16:06:05'),
-(209, 2, 'Vipul Girase', 'NN', 'A', '65', '2024-04-15 16:06:05'),
-(210, 5, 'Prashant Patil', 'os', 'C', '02', '2024-04-15 22:44:52'),
-(211, 3, 'Aashish Gore', 'os', 'A', '66', '2024-04-15 22:44:52'),
-(212, 1, 'Prerana Mandale', 'os', 'B', '43', '2024-04-15 22:44:52');
+-- (Sin datos por ahora)
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `student`
---
+-- Tabla: student
+-- --------------------------------------------------------
 
 CREATE TABLE `student` (
   `id` int(11) NOT NULL,
@@ -88,22 +63,16 @@ CREATE TABLE `student` (
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `student`
---
-
 INSERT INTO `student` (`id`, `name`, `email`, `roll_no`, `section`, `password`) VALUES
-(1, 'Prerana Mandale', 'prerana@gmail.com', '43', 'B', 'prerana@123'),
-(2, 'Vipul Girase', 'vipul@gmail.com', '65', 'A', 'vipul@123'),
-(3, 'Aashish Gore', 'aashish@gmail.com', '66', 'A', 'aashish@123'),
-(4, 'Lokesh Chaudhari', 'lokesh@gmail.com', '38', 'A', 'lokesh@123'),
-(5, 'Prashant Patil', 'prashant@gmail.com', '02', 'C', 'prashant@123');
+(1, 'Alumno 1', 'alumno1@gmail.com', '01', 'A', 'pass'),
+(2, 'Alumno 2', 'alumno2@gmail.com', '02', 'A', 'pass'),
+(3, 'Alumno 3', 'alumno3@gmail.com', '03', 'B', 'pass'),
+(4, 'Alumno 4', 'alumno4@gmail.com', '04', 'B', 'pass'),
+(5, 'Alumno 5', 'alumno5@gmail.com', '05', 'C', 'pass');
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `teacher`
---
+-- Tabla: teacher
+-- --------------------------------------------------------
 
 CREATE TABLE `teacher` (
   `id` int(11) NOT NULL,
@@ -113,76 +82,47 @@ CREATE TABLE `teacher` (
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `teacher`
---
-
 INSERT INTO `teacher` (`id`, `name`, `email`, `subject`, `password`) VALUES
-(1, 'Shital A Patil', 'sap@gmail.com', 'os', 'pass'),
-(2, 'Dr. S P Ramteke', 'spr@gmail.com', 'NN', 'pass'),
-(3, 'Priyanka V Medhe', 'pvm@gmail.com', 'DAA', 'pass'),
-(4, 'Mohan P Patil', 'mpp@gmail.com', 'CN', 'pass'),
-(5, 'Mayuri R Chandratre', 'mrc@gmail.com', 'PM', 'pass');
+(1, 'Maestro 1', 'maestro1@gmail.com', 'Matemáticas', 'pass'),
+(2, 'Maestro 2', 'maestro2@gmail.com', 'Lengua Castellana', 'pass'),
+(3, 'Maestro 3', 'maestro3@gmail.com', 'Ciencias Naturales', 'pass'),
+(4, 'Maestro 4', 'maestro4@gmail.com', 'Educación Física', 'pass'),
+(5, 'Maestro 5', 'maestro5@gmail.com', 'Tecnología', 'pass');
 
---
--- Indexes for dumped tables
---
+-- --------------------------------------------------------
+-- Índices
+-- --------------------------------------------------------
 
---
--- Indexes for table `admin`
---
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `attendance`
---
 ALTER TABLE `attendance`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `s_id` (`s_id`,`date`),
-  ADD UNIQUE KEY `s_id_2` (`s_id`,`subject`,`date`);
+  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `student`
---
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `teacher`
---
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
+-- --------------------------------------------------------
+-- AUTO_INCREMENT
+-- --------------------------------------------------------
 
---
--- AUTO_INCREMENT for table `admin`
---
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT for table `attendance`
---
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
---
--- AUTO_INCREMENT for table `student`
---
 ALTER TABLE `student`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT for table `teacher`
---
 ALTER TABLE `teacher`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+ /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
