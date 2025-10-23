@@ -18,37 +18,95 @@ $id = $_GET['id'];
     <title>Sistema de Asistencia con Código QR</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .right{
-            margin-top: 2rem;
-            float: left;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #4b0d3a, #b91372);
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        .left{
-            width: auto;
+
+        main {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            width: 400px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .input_area {
+            margin-bottom: 1.2rem;
+        }
+
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus {
+            background-color: #f5e1f5;
+            color: #4b0d3a;
+        }
+
+        .button_submit {
+            background-color: #b91372;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .button_submit:hover {
+            background-color: #4b0d3a;
+        }
+
+        .present {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <div class="present">Presente</div>
     <main>
-        <section class="left">
-            <div class="logo">
-                <img src="../resources/img/Attendance System.png" alt="">
-                <h2>Sistema de Asistencia</h2>
+        <h2>Editar Profesor</h2>
+        <form action="#" method="post" id="form">
+            <div class="input_area">
+                <input type="text" placeholder="Ingrese Nombre" name="name" value="<?php echo $_GET['name'];?>" required>
             </div>
-        </section>
-        <section class="right">
-            <form action="#" method="post" id="form">
-                <div class="input_area">
-                    <input type="text" placeholder="Ingrese Nombre" name="name" value="<?php echo $_GET['name'];?>" required>
-                </div>
-                <div class="input_area">
-                    <input type="email" placeholder="Ingrese Correo" name="email" value="<?php echo $_GET['email'];?>" required>
-                </div>
-                <div class="input_area">
-                    <input type="text" placeholder="Ingrese Nombre de la Asignatura" name="subject" value="<?php echo $_GET['subject'];?>" required>
-                </div>
-                <input type="submit" value="Guardar Cambios" class="button_submit" name="update">
-            </form>
-        </section>
+            <div class="input_area">
+                <input type="email" placeholder="Ingrese Correo" name="email" value="<?php echo $_GET['email'];?>" required>
+            </div>
+            <div class="input_area">
+                <input type="text" placeholder="Ingrese Nombre de la Asignatura" name="subject" value="<?php echo $_GET['subject'];?>" required>
+            </div>
+            <input type="submit" value="Guardar Cambios" class="button_submit" name="update">
+        </form>
     </main>
 </body>
 </html>
