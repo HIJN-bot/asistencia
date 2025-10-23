@@ -15,58 +15,124 @@ if (!isset($_SESSION["student_name"])) {
   <title>Escanear Código QR</title>
   <link rel="stylesheet" href="../css/style.css" />
   <style>
+    /* ======== Estilos generales ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f9;
+      background: linear-gradient(135deg, #b91372, #4b0d3a);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f2f2f2;
+      overflow-x: hidden;
     }
 
+    /* ======== Encabezado “Presente” ======== */
+    header {
+      position: fixed;
+      top: 15px;
+      left: 25px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffb6e6;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(255, 119, 194, 0.5);
+      z-index: 10;
+    }
+
+    /* ======== Contenedor principal ======== */
     .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 500px;
+      background: rgba(30, 30, 30, 0.9);
+      padding: 40px 30px;
+      border-radius: 20px;
       text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(255, 119, 194, 0.25);
+    }
+
+    h1 {
+      color: #ffb6e6;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #ddd;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    /* ======== Lector QR ======== */
     #my-qr-reader {
       padding: 20px !important;
-      border: 1.5px solid #b2b2b2 !important;
-      border-radius: 8px;
-    }
-
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 0.25em;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-      margin-top: 15px;
-      background-color: #1976d2;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #0d47a1;
+      border: 2px solid #ff77c2 !important;
+      border-radius: 12px;
+      background: rgba(75, 13, 58, 0.4);
+      backdrop-filter: blur(4px);
     }
 
     video {
-      width: 300px !important;
-      border-radius: 8px;
+      width: 100% !important;
+      border-radius: 12px;
       margin: auto;
+    }
+
+    /* ======== Botón ======== */
+    button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #b91372, #4b0d3a);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #4b0d3a, #b91372);
+      transform: scale(1.05);
+    }
+
+    /* ======== Responsivo ======== */
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      header {
+        font-size: 1.3rem;
+        left: 15px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <header>Presente</header>
+
   <main>
     <?php 
       $title = 'Sistema de Asistencia';
       $username = $_SESSION['student_name'];
       include "../componets/header.php"; 
     ?>
+
     <div class="container">
       <h1>Bienvenido, <?php echo htmlspecialchars($username); ?> 👋</h1>
       <p>Escanea el código QR para registrar tu asistencia.</p>
