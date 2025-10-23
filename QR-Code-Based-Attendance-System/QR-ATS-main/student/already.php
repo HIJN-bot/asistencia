@@ -15,47 +15,100 @@ if (!isset($_SESSION["student_name"])) {
   <title>Panel de Control</title>
   <link rel="stylesheet" href="../css/style.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f9;
+    /* ======== Estilos generales ======== */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
+    body {
+      background: linear-gradient(135deg, #b91372, #4b0d3a);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f2f2f2;
+    }
+
+    /* ======== Encabezado “Presente” ======== */
+    header {
+      position: fixed;
+      top: 15px;
+      left: 25px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffb6e6;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(255, 119, 194, 0.5);
+      z-index: 10;
+    }
+
+    /* ======== Contenedor ======== */
     .container {
-      max-width: 600px;
-      margin: 100px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 500px;
+      background: rgba(30, 30, 30, 0.9);
+      padding: 40px;
+      border-radius: 20px;
       text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(255, 119, 194, 0.25);
+    }
+
+    /* ======== Texto ======== */
     .msg {
-      color: #d32f2f;
-      font-size: 22px;
-      margin-bottom: 20px;
+      color: #ffb6e6;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: 600;
     }
 
+    p {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 25px;
+    }
+
+    /* ======== Botón ======== */
     a.button {
       display: inline-block;
-      padding: 12px 25px;
-      background: #1976d2;
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #b91372, #4b0d3a);
       color: white;
-      border-radius: 8px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
 
     a.button:hover {
-      background: #0d47a1;
+      background: linear-gradient(135deg, #4b0d3a, #b91372);
+      transform: scale(1.05);
+    }
+
+    /* ======== Responsive ======== */
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 25px;
+      }
+      header {
+        font-size: 1.3rem;
+        left: 15px;
+      }
     }
   </style>
 </head>
 
 <body>
+  <header>Presente</header>
+
   <main>
     <?php 
     $title = 'Sistema de Asistencia';
@@ -72,3 +125,4 @@ if (!isset($_SESSION["student_name"])) {
 </body>
 
 </html>
+
