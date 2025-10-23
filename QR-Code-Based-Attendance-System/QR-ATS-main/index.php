@@ -15,19 +15,20 @@
     }
 
     body {
-      background: linear-gradient(135deg, #6b0f1a, #b91372);
+      background: linear-gradient(135deg, #4b0d3a, #b91372);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      color: #eee;
     }
 
     main {
       width: 95%;
       max-width: 420px;
-      background: #fff;
+      background: #1e1e1e;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       padding: 40px 35px;
       display: flex;
       flex-direction: column;
@@ -36,11 +37,12 @@
     }
 
     main:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(185, 19, 114, 0.3);
     }
 
     h2 {
-      color: #333;
+      color: #ffb6e6;
       margin-bottom: 25px;
       text-align: center;
       font-size: 1.6rem;
@@ -62,14 +64,18 @@
     }
 
     .role label {
-      color: #444;
+      color: #ddd;
       font-weight: 500;
       cursor: pointer;
       transition: color 0.2s;
     }
 
+    .role label:hover {
+      color: #ff77c2;
+    }
+
     .role input[type="radio"] {
-      accent-color: #b91372;
+      accent-color: #ff77c2;
       transform: scale(1.2);
       margin-right: 6px;
     }
@@ -81,20 +87,22 @@
     .input_area input {
       width: 100%;
       padding: 12px 15px;
-      border: 2px solid #ccc;
+      background: #2b2b2b;
+      border: 2px solid #444;
+      color: #fff;
       border-radius: 10px;
       font-size: 0.95rem;
       transition: all 0.3s;
     }
 
     .input_area input:focus {
-      border-color: #b91372;
+      border-color: #ff77c2;
       outline: none;
-      box-shadow: 0 0 8px rgba(185, 19, 114, 0.3);
+      box-shadow: 0 0 8px rgba(255, 119, 194, 0.4);
     }
 
     .button_submit {
-      background: linear-gradient(135deg, #b91372, #6b0f1a);
+      background: linear-gradient(135deg, #b91372, #4b0d3a);
       color: white;
       font-size: 1rem;
       font-weight: 600;
@@ -106,7 +114,7 @@
     }
 
     .button_submit:hover {
-      background: linear-gradient(135deg, #6b0f1a, #b91372);
+      background: linear-gradient(135deg, #4b0d3a, #b91372);
       transform: scale(1.03);
     }
 
@@ -114,11 +122,11 @@
       text-align: center;
       font-size: 0.9rem;
       margin-top: 10px;
-      color: #444;
+      color: #ccc;
     }
 
     .msg a {
-      color: #b91372;
+      color: #ff77c2;
       text-decoration: none;
       font-weight: 600;
       transition: 0.2s;
