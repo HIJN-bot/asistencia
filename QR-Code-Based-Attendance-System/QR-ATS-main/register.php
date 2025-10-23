@@ -21,8 +21,23 @@
       justify-content: center;
       align-items: center;
       color: #eee;
+      position: relative;
+      overflow: hidden;
     }
 
+    /* ======== Título “Presente” ======== */
+    .titulo-presente {
+      position: absolute;
+      top: 25px;
+      left: 30px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffb6e6;
+      text-shadow: 0 0 12px rgba(255, 182, 230, 0.4);
+      letter-spacing: 1px;
+    }
+
+    /* ======== Contenedor Principal ======== */
     main {
       width: 95%;
       max-width: 420px;
@@ -34,6 +49,7 @@
       flex-direction: column;
       align-items: center;
       transition: 0.3s ease;
+      z-index: 2;
     }
 
     main:hover {
@@ -88,7 +104,7 @@
 
     /* ======== Botón ======== */
     .button_submit {
-      background: linear-gradient(135deg, #b91372, #4b0d3a);
+      background: linear-gradient(90deg, #a50d62, #4b0d3a);
       color: white;
       font-size: 1rem;
       font-weight: 600;
@@ -97,11 +113,13 @@
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s;
+      box-shadow: 0 0 12px rgba(165, 13, 98, 0.3);
     }
 
     .button_submit:hover {
-      background: linear-gradient(135deg, #4b0d3a, #b91372);
-      transform: scale(1.03);
+      background: linear-gradient(90deg, #4b0d3a, #a50d62);
+      transform: scale(1.05);
+      box-shadow: 0 0 16px rgba(185, 19, 114, 0.5);
     }
 
     /* ======== Mensaje ======== */
@@ -131,10 +149,17 @@
       h2 {
         font-size: 1.4rem;
       }
+      .titulo-presente {
+        font-size: 1.3rem;
+        left: 20px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <span class="titulo-presente">Presente</span>
+
   <main>
     <h2>Registro de Estudiante</h2>
 
@@ -182,14 +207,14 @@
       let cpass = document.getElementById("cpass").value;
 
       if (pass !== cpass) {
-        alert(" Las contraseñas no coinciden. Inténtalo de nuevo.");
+        alert("⚠️ Las contraseñas no coinciden. Inténtalo de nuevo.");
         return false;
       }
 
       let email = document.querySelector('input[name="email"]').value;
       let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
       if (!email.match(emailPattern)) {
-        alert(" Ingrese un correo electrónico válido.");
+        alert("⚠️ Ingrese un correo electrónico válido.");
         return false;
       }
 
